@@ -11,6 +11,7 @@ class Picture
     2.times { @canvas << "                 ".split(//) }
   end
 
+  # included so I don't need to define an additional array to "component"
   def new_game
   end
 
