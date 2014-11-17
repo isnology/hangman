@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6aef28bd-5c0c-4c66-9c9c-07a963acd8e8" name="Default" comment="Initial commit">
+    <list default="true" id="6aef28bd-5c0c-4c66-9c9c-07a963acd8e8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hangman.rb" afterPath="$PROJECT_DIR$/hangman.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -34,8 +34,8 @@
       <file leaf-file-name="hangman.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hangman.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22052401" vertical-offset="1090" max-vertical-offset="2006">
-              <caret line="76" column="11" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.27838427" vertical-offset="357" max-vertical-offset="2074">
+              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -245,7 +245,25 @@
       <option name="project" value="LOCAL" />
       <updated>1416214190565</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Initial commit">
+      <created>1416235150727</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1416235150727</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Initial commit">
+      <created>1416240546759</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1416240546759</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Initial commit">
+      <created>1416241852791</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1416241852791</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -312,8 +330,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hangman.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22052401" vertical-offset="1090" max-vertical-offset="2006">
-          <caret line="76" column="11" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.27838427" vertical-offset="357" max-vertical-offset="2074">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
           <folding />
         </state>
       </provider>

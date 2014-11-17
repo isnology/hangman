@@ -26,18 +26,18 @@ class Man
 
   def initialize(canvas)
     # ignore the zero element (start from position 1)
-    @master_man = [' ', 'O', '|', '/', "\\", '|', '/', "\\"]
-    @map = [[2,5],[2,6],[3,6],[3,5],[3,7],[4,6],[5,5],[5,7]]
+    @man_components = [' ', 'O', '|', '/', "\\", '|', '/', "\\"]
+    @man_coordinates = [[2,5],[2,6],[3,6],[3,5],[3,7],[4,6],[5,5],[5,7]]
     @canvas = canvas
   end
 
   def new_game
     @incorrect_guesses = 0
-    @map.each_index { |step| plot(step, ' ') }
+    @man_coordinates.each_index { |x| plot(@man_coordinates[x], ' ') }
   end
 
   def draw
-    plot(@incorrect_guesses, @master_man[@incorrect_guesses] )
+    plot(@man_coordinates[@incorrect_guesses], @man_components[@incorrect_guesses] )
   end
 
   def incorrect_guess
@@ -45,13 +45,13 @@ class Man
   end
 
   def complete?
-    @incorrect_guesses >= @master_man.size - 1
+    @incorrect_guesses >= @man_components.size - 1
   end
 
   private
 
-    def plot(step, char)
-      @canvas[ @map[step][0] ][ @map[step][1] ] = char
+    def plot(coordinates, char)
+      @canvas[ coordinates[0] ][ coordinates[1] ] = char
     end
 end
 
@@ -96,7 +96,9 @@ picture = Picture.new
 component = []
 component << man = Man.new(picture.canvas)
 component << word = Word.new(picture.canvas)
-component << picture      # picture must be last in array
+# picture must be last entry in array
+component << picture
+
 win = "Congratulations, you got it."
 lose = "Sorry, you lose. The word was: "
 
