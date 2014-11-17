@@ -69,6 +69,7 @@ class Word
   end
 
   def new_game
+    @target_result.each_index { |x| @canvas.last[x + 1] = ' ' } if @target_result
     @target_word = @words[rand(@words.size)]
     @target_result = []
     @target_word.each_char { @target_result << '_' }
@@ -76,7 +77,7 @@ class Word
 
   def guess
     print 'enter a letter:'
-    char = gets.chomp
+    char = gets.slice(0).downcase
     increment = nil
     @target_result.each_index do |x|
       increment = @target_result[x] = char if @target_word.slice(x) == char
@@ -110,4 +111,4 @@ begin
   puts word.complete? ? win : lose + word.target_word
 
   print "\nAnother game (y/n)"
-end while gets.chomp == 'y'
+end while gets.slice(0).upcase == 'Y'
