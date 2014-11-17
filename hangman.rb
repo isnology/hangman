@@ -8,6 +8,7 @@ class Picture
     4.times { @canvas << "               |".split(//) }
     @canvas << "              /|".split(//)
     @canvas << " ____________/_|_".split(//)
+    2.times { @canvas << "                 ".split(//) }
   end
 
   def new_game
@@ -16,6 +17,7 @@ class Picture
   def draw
     system('clear')
     @canvas.each { |array| puts array.join }
+    puts
   end
 end
 
@@ -55,14 +57,15 @@ end
 class Word
   attr_reader :target_word
 
-  def initialize
+  def initialize(canvas)
     @words = %w[sleep cat frog running elephant car rat piano horse house dog desk mouse mouth
                 truck rock flip bike mike sew there their here was up down because when with]
     Random.new_seed
+    @canvas = canvas
   end
 
   def draw
-    puts "\n #{@target_result.join}\n\n"
+    @target_result.each_index { |x| @canvas.last[x + 1] = @target_result[x] }
   end
 
   def new_game
@@ -90,8 +93,8 @@ end
 picture = Picture.new
 component = []
 component << man = Man.new(picture.canvas)
-component << picture
-component << word = Word.new
+component << word = Word.new(picture.canvas)
+component << picture      # picture must be last in array
 win = "Congratulations, you got it."
 lose = "Sorry, you lose. The word was: "
 
