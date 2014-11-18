@@ -8,11 +8,11 @@
 # keep it simple to aid the above.
 #
 class DuckType
-  attr_accessor :preparers, :players
+  attr_accessor :new_game, :draw
 
   def initialize
-    @preparers = []
-    @players = []
+    @new_game = []
+    @draw = []
   end
 end
 
@@ -43,8 +43,8 @@ class Man
     @man_components = [' ', 'O', '|', '/', "\\", '|', '/', "\\"]
     @man_coordinates = [[2,5],[2,6],[3,6],[3,5],[3,7],[4,6],[5,5],[5,7]]
     @canvas = canvas
-    duck.preparers << self
-    duck.players << self
+    duck.new_game << self
+    duck.draw << self
   end
 
   def new_game
@@ -79,8 +79,8 @@ class Word
     File.foreach("hangman.txt") { |line| @words << line.chomp.split(',') }
     srand
     @canvas = canvas
-    duck.preparers << self
-    duck.players << self
+    duck.new_game << self
+    duck.draw << self
   end
 
   def draw
@@ -122,10 +122,10 @@ win = "Congratulations, you got it."
 lose = "Sorry, you lose. The word was: "
 
 begin
-  duck.preparers.each { |prepare| prepare.new_game }
+  duck.new_game.each { |prepare| prepare.new_game }
 
   loop do
-    duck.players.each { |play| play.draw }
+    duck.draw.each { |game_part| game_part.draw }
     picture.put_to_console
     break if man.complete? || word.complete?
     man.incorrect_guess unless word.guess
