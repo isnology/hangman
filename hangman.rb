@@ -1,3 +1,20 @@
+# Simple Hangman game
+#
+# Goals:-
+# to learn Ruby skills.
+# implement duck-types.
+# loosley coupled code.
+# keep it simple to aid the above.
+#
+class Roles
+  attr_accessor :preparers, :players
+
+  def initialize
+    @preparers = []
+    @players = []
+  end
+end
+
 class Picture
   attr_reader :canvas
 
@@ -11,11 +28,7 @@ class Picture
     2.times { @canvas << "                 ".split(//) }
   end
 
-  # included so I don't need to define an additional array to "component"
-  def new_game
-  end
-
-  def draw
+  def put_to_console
     system('clear')
     @canvas.each { |array| puts array.join }
     puts
@@ -24,11 +37,13 @@ end
 
 class Man
 
-  def initialize(canvas)
+  def initialize(canvas, roles)
     # ignore the zero element (start from position 1)
     @man_components = [' ', 'O', '|', '/', "\\", '|', '/', "\\"]
     @man_coordinates = [[2,5],[2,6],[3,6],[3,5],[3,7],[4,6],[5,5],[5,7]]
     @canvas = canvas
+    roles.preparers << self
+    roles.players << self
   end
 
   def new_game
@@ -58,11 +73,13 @@ end
 class Word
   attr_reader :target_word
 
-  def initialize(canvas)
+  def initialize(canvas, roles)
     @words = %w[sleep cat frog running elephant car rat piano horse house dog desk mouse mouth
                 truck rock flip bike mike sew there their here was up down because when with]
     Random.new_seed
     @canvas = canvas
+    roles.preparers << self
+    roles.players << self
   end
 
   def draw
@@ -92,21 +109,20 @@ class Word
 end
 
 #- main -------------------------------------------------------------
+roles = Roles.new
 picture = Picture.new
-component = []
-component << man = Man.new(picture.canvas)
-component << word = Word.new(picture.canvas)
-# picture must be last entry in array
-component << picture
+man = Man.new(picture.canvas, roles)
+word = Word.new(picture.canvas, roles)
 
 win = "Congratulations, you got it."
 lose = "Sorry, you lose. The word was: "
 
 begin
-  component.each { |prepare| prepare.new_game }
+  roles.preparers.each { |prepare| prepare.new_game }
 
   loop do
-    component.each { |play| play.draw }
+    roles.players.each { |play| play.draw }
+    picture.put_to_console
     break if man.complete? || word.complete?
     man.incorrect_guess unless word.guess
   end
