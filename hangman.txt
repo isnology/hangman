@@ -1,100 +1,100 @@
-a
-about
-after
-all
-am
-an
-and
-are
-as
-at
-back
-be
-because
-been
-big
-but
-by
-came
-can
-come
-day
-did
-do
-down
-for
-from
-get
-go
-going
-got
-had
-has
-have
-he
-her
-here
-him
-his
-i
-if
-in
-into
-is
-it
-just
-like
-little
-look
-made
-make
-me
-more
-my
-no
-not
-now
-of
-off
-on
-one
-only
-or
-out
-over
-said
-saw
-see
-she
-sleep
-so
-some
-soon
-stay
-sun
-that
-the
-them
-then
-there
-they
-this
-those
-to
-two
-up
-us
-very
-was
-we
-week
-went
-were
-what
-when
-who
-why
-will
-with
-you
-your
+a,no hint
+about,no hint
+after,no hint
+all,no hint
+am,no hint
+an,no hint
+and,no hint
+are,no hint
+as,no hint
+at,no hint
+back,no hint
+be,no hint
+because,no hint
+been,no hint
+big,not small
+but,no hint
+by,no hint
+came,no hint
+can,no hint
+come,no hint
+day,no hint
+did,no hint
+do,no hint
+down,no hint
+for,no hint
+from,no hint
+get,no hint
+go,no hint
+going,no hint
+got,no hint
+had,no hint
+has,no hint
+have,no hint
+he,no hint
+her,no hint
+here,no hint
+him,no hint
+his,no hint
+i,no hint
+if,no hint
+in,no hint
+into,no hint
+is,no hint
+it,no hint
+just,no hint
+like,no hint
+little,no hint
+look,no hint
+made,no hint
+make,no hint
+me,another word for myself
+more,no hint
+my,no hint
+no,no hint
+not,no hint
+now,no hint
+of,no hint
+off,no hint
+on,no hint
+one,no hint
+only,no hint
+or,no hint
+out,not in
+over,no hint
+said,no hint
+saw,no hint
+see,no hint
+she,girl
+sleep,what I do when I am not awake
+so,no hint
+some,no hint
+soon,no hint
+stay,oppisite to go
+sun,no hint
+that,no hint
+the,no hint
+them,no hint
+then,no hint
+there,no hint
+they,no hint
+this,no hint
+those,no hint
+to,no hint
+two,no hint
+up,no hint
+us,no hint
+very,no hint
+was,no hint
+we,no hint
+week,no hint
+went,no hint
+were,no hint
+what,no hint
+when,no hint
+who,no hint
+why,no hint
+will,no hint
+with,no hint
+you,not me
+your,not mine

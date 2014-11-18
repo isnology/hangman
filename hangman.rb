@@ -1,4 +1,4 @@
-# Simple Hangman game
+# Simple Hangman game (top 100 words) or change the file hangman.txt to what you want
 #
 # Goals:-
 # to learn Ruby skills.
