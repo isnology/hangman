@@ -7,7 +7,7 @@
 # loosley coupled code.
 # keep it simple to aid the above.
 #
-class Roles
+class DuckType
   attr_accessor :preparers, :players
 
   def initialize
@@ -38,13 +38,13 @@ end
 
 class Man
 
-  def initialize(canvas, roles)
+  def initialize(canvas, duck)
     # ignore the zero element (start from position 1)
     @man_components = [' ', 'O', '|', '/', "\\", '|', '/', "\\"]
     @man_coordinates = [[2,5],[2,6],[3,6],[3,5],[3,7],[4,6],[5,5],[5,7]]
     @canvas = canvas
-    roles.preparers << self
-    roles.players << self
+    duck.preparers << self
+    duck.players << self
   end
 
   def new_game
@@ -74,13 +74,13 @@ end
 class Word
   attr_reader :target_word
 
-  def initialize(canvas, roles)
-    @words = %w[sleep cat frog running elephant car rat piano horse house dog desk mouse mouth
-                truck rock flip bike mike sew there their here was up down because when with]
+  def initialize(canvas, duck)
+    @words = []
+    File.foreach("hangman.txt") { |line| @words << line.chomp.split(',') }
     Random.new_seed
     @canvas = canvas
-    roles.preparers << self
-    roles.players << self
+    duck.preparers << self
+    duck.players << self
   end
 
   def draw
@@ -89,14 +89,17 @@ class Word
 
   def new_game
     @target_result.each_index { |x| @canvas.last[x + 1] = ' ' } if @target_result
-    @target_word = @words[rand(@words.size)]
+    x = rand(@words.size)
+    @target_word = @words[x][0]
+    @hint = @words[x][1]
     @target_result = []
     @target_word.each_char { @target_result << '_' }
   end
 
   def guess
+    puts "Hint:- #{@hint}\n\n"
     print 'enter a letter:'
-    char = gets.slice(0).downcase
+    char = gets.strip.downcase
     increment = nil
     @target_result.each_index do |x|
       increment = @target_result[x] = char if @target_word.slice(x) == char
@@ -110,19 +113,19 @@ class Word
 end
 
 #- main -------------------------------------------------------------
-roles = Roles.new
+duck = DuckType.new
 picture = Picture.new
-man = Man.new(picture.canvas, roles)
-word = Word.new(picture.canvas, roles)
+man = Man.new(picture.canvas, duck)
+word = Word.new(picture.canvas, duck)
 
 win = "Congratulations, you got it."
 lose = "Sorry, you lose. The word was: "
 
 begin
-  roles.preparers.each { |prepare| prepare.new_game }
+  duck.preparers.each { |prepare| prepare.new_game }
 
   loop do
-    roles.players.each { |play| play.draw }
+    duck.players.each { |play| play.draw }
     picture.put_to_console
     break if man.complete? || word.complete?
     man.incorrect_guess unless word.guess
@@ -131,4 +134,4 @@ begin
   puts word.complete? ? win : lose + word.target_word
 
   print "\nAnother game (y/n)"
-end while gets.slice(0).upcase == 'Y'
+end while gets.strip.upcase == 'Y'
