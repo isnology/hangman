@@ -77,7 +77,7 @@ class Word
   def initialize(canvas, duck)
     @words = []
     File.foreach("hangman.txt") { |line| @words << line.chomp.split(',') }
-    Random.new_seed
+    srand
     @canvas = canvas
     duck.preparers << self
     duck.players << self
