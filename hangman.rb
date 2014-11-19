@@ -90,7 +90,7 @@ class Word
   end
 
   def new_game
-    @canvas.last[0,17] = " " * PICTURE_SIZE
+    @canvas.last[0, PICTURE_SIZE] = " " * PICTURE_SIZE
     x = rand(@words.size)
     @target_word, @hint = @words[x]
     @target_result = '_' * @target_word.size
