@@ -99,7 +99,7 @@ class Word
     print 'enter a letter:'
     char = gets.strip.downcase
     increment = nil
-    0.upto @target_word.size do |x|
+    0.upto(@target_word.size - 1) do |x|
       increment = @target_result[x] = char if @target_word[x] == char
     end
     increment
