@@ -7,6 +7,8 @@
 # loosley coupled code.
 # keep it simple to aid the above.
 #
+PICTURE_SIZE = 17
+
 class DuckType
   attr_accessor :new_game, :draw
 
@@ -26,7 +28,7 @@ class Picture
     4.times { @canvas << "               |" }
     @canvas << "              /|"
     @canvas << " ____________/_|_"
-    2.times { @canvas << " " * 17 }
+    2.times { @canvas << " " * PICTURE_SIZE }
   end
 
   def put_to_console
@@ -88,7 +90,7 @@ class Word
   end
 
   def new_game
-    @canvas.last[0,17] = " " * 17
+    @canvas.last[0,17] = " " * PICTURE_SIZE
     x = rand(@words.size)
     @target_word, @hint = @words[x]
     @target_result = '_' * @target_word.size
