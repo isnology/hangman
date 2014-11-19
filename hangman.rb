@@ -21,17 +21,17 @@ class Picture
 
   def initialize
     @canvas = []
-    @canvas << "      __________".split(//)
-    @canvas << "      |       \\|".split(//)
-    4.times { @canvas << "               |".split(//) }
-    @canvas << "              /|".split(//)
-    @canvas << " ____________/_|_".split(//)
-    2.times { @canvas << "                 ".split(//) }
+    @canvas << "      __________"
+    @canvas << "      |       \\|"
+    4.times { @canvas << "               |" }
+    @canvas << "              /|"
+    @canvas << " ____________/_|_"
+    2.times { @canvas << " " * 17 }
   end
 
   def put_to_console
     system('clear')
-    @canvas.each { |array| puts array.join }
+    puts @canvas
     puts
   end
 end
@@ -84,16 +84,14 @@ class Word
   end
 
   def draw
-    @target_result.each_index { |x| @canvas.last[x + 1] = @target_result[x] }
+    @canvas.last[1,@target_result.size] = @target_result
   end
 
   def new_game
-    @target_result.each_index { |x| @canvas.last[x + 1] = ' ' } if @target_result
+    @canvas.last[0,17] = " " * 17
     x = rand(@words.size)
-    @target_word = @words[x][0]
-    @hint = @words[x][1]
-    @target_result = []
-    @target_word.each_char { @target_result << '_' }
+    @target_word, @hint = @words[x]
+    @target_result = '_' * @target_word.size
   end
 
   def guess
@@ -101,8 +99,8 @@ class Word
     print 'enter a letter:'
     char = gets.strip.downcase
     increment = nil
-    @target_result.each_index do |x|
-      increment = @target_result[x] = char if @target_word.slice(x) == char
+    0.upto @target_word.size do |x|
+      increment = @target_result[x] = char if @target_word[x] == char
     end
     increment
   end

@@ -1,34 +1,34 @@
 a,no hint
-about,no hint
-after,no hint
-all,no hint
-am,no hint
-an,no hint
-and,no hint
-are,no hint
-as,no hint
-at,no hint
-back,no hint
-be,no hint
+about,I know something _____ you
+after,not before
+all,everything
+am,who __ I
+an,I have __ apple
+and,there is something else
+are,we ___ not alone
+as,he gets taller __ he gets older
+at,I will weet him __ the shop
+back,not front
+be,I'll __ back
 because,no hint
-been,no hint
+been,went there before
 big,not small
-but,no hint
-by,no hint
-came,no hint
-can,no hint
-come,no hint
-day,no hint
-did,no hint
-do,no hint
-down,no hint
-for,no hint
-from,no hint
-get,no hint
-go,no hint
-going,no hint
-got,no hint
-had,no hint
+but,there's more
+by,down __ the river
+came,the boy ____ here
+can,___ I have one too?
+come,can you ____ over here?
+day,not night
+did,it was something you ___
+do,will you __ it
+down,not up
+for,I did it ___ him
+from,he comes ____ the city
+get,you can ___ one too
+go,not come
+going,not coming
+got,I have it
+had,I don't have it now
 has,no hint
 have,no hint
 he,no hint
